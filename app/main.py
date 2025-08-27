@@ -22,6 +22,7 @@ from starlette.staticfiles import StaticFiles
 from app.config import AppSettings
 from app.controller.router import api_router
 from app.schemas.response import Response
+from pathlib import Path
 
 settings = AppSettings()
 PREFIX = settings.SVC_PREFIX
@@ -89,10 +90,11 @@ def init_exception_handlers(app):
 
 
 def configure_static(app):
-    bese_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+    base_path = Path(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
+    static_path = base_path / "static"
     app.mount(
         PREFIX + "/static",
-        StaticFiles(directory=os.path.join(bese_path, "static")),
+        StaticFiles(directory=static_path),
         name="static",
     )
 
@@ -120,7 +122,7 @@ def create_app() -> FastAPI:
         "redoc_url": None,
         "openapi_url": f"{settings.SVC_PREFIX}/openapi.json",
         "title": f"{settings.APP_NAME} service",
-        "version": settings.DEVOPS_VERSION,
+        "version": settings.VERSION,
     }
     app_config["lifespan"] = lifespan
     app = FastAPI(**app_config)
