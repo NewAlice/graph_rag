@@ -36,7 +36,7 @@ async def http_exception_handler(request: Request, exc: HTTPException):
 
 
 def base_exception_handler(request: Request, exc: HTTPException):
-    return exc.to_json_response()
+    return str(exc)
 
 
 async def validation_exception_handler(request: Request, exc: ValidationError):

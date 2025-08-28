@@ -3,12 +3,12 @@ name = "graph_rag"
 version = "1.0.0"
 description = "GraphRag service"
 readme = "README.md"
+ package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "3.12.11"
 fastapi = "0.115.6"
 fastapi_restful = "0.6.0"
-python-dotenv = "1.0.0"
 SQLAlchemy = "2.0.28"
 uvicorn = "0.34.0"
 alembic = "^1.13.2"
@@ -19,9 +19,11 @@ python-docx="1.1.2"
 pydantic="2.10.6"
 pydantic-settings="2.7.1"
 pandas="2.2.3"
+poetry = "^2.1.4"
+python-dotenv = "1.0.1"
+graphrag = "^2.5.0"
 
-
-[tool.poetry.dev-dependencies]
+[poetry.group.dev.dependencies]
 # Testing
 pytest = "*"
 pytest-cov = "*"
