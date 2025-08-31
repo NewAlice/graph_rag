@@ -90,7 +90,9 @@ def init_exception_handlers(app):
 
 
 def configure_static(app):
-    base_path = Path(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
+    base_path = Path(
+        os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+    )
     static_path = base_path / "static"
     app.mount(
         PREFIX + "/static",

@@ -7,6 +7,7 @@ from app.schemas.response import Response
 
 QWEN_MODEL = "qwen3:8b"
 
+
 class OllamaChatController:
     router = APIRouter()
 
@@ -20,5 +21,5 @@ class OllamaChatController:
         if getattr(response, "message"):
             data = response.message.content
         else:
-            data = response['message']['content']
+            data = response["message"]["content"]
         return Response(data=OllamaChatContent(content=data))
