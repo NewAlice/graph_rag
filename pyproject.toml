@@ -22,6 +22,7 @@ pandas="2.2.3"
 poetry = "^2.1.4"
 python-dotenv = "1.0.1"
 graphrag = "^2.5.0"
+ollama = "^0.5.3"
 
 [poetry.group.dev.dependencies]
 # Testing

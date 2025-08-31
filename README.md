@@ -30,6 +30,8 @@ run `poetry install` to install the project's dependencies
 1. create .env based on .env.example, update values accordingly
 2. `poetry run uvicorn app.main:app`
 3. `graphrag init --root ./docs`
+4. `graphrag index --root .`
+5. `graphrag query --method local -q "文章出现了几次背影?"`
 
 ## local run unit test
 1. create .env based on .env.example, update values accordingly
